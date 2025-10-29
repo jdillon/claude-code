@@ -27,7 +27,7 @@ Resume work from a previously saved stash.
 
 ## Error Handling
 
-- If file not found, show available stashes (run `/stash-list` logic)
+- If file not found, show available stashes (run `/stash:list` logic)
 - If `.latest` doesn't exist and no arg given, show error and list available stashes
 - Show helpful error messages with suggestions
 
