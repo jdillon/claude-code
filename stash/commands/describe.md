@@ -8,10 +8,10 @@ Display a brief summary of what a stash contains without fully resuming from it.
 
 ## Resolution Strategy
 
-Same as `/stash-resume`:
+Same as `/stash:resume`:
 1. **If full path**: Use directly
 2. **If name**: Look for `stash-<name>.md` in `.claude/stashes/` or `~/.claude/stashes/`
-3. **If no argument**: Show error - "Usage: /stash-describe <name>"
+3. **If no argument**: Show error - "Usage: /stash:describe <name>"
 
 ## Process
 
@@ -39,7 +39,7 @@ Pending:
 
 Files: ~5 files mentioned
 
-💡 Resume with: /stash-resume dns-work
+💡 Resume with: /stash:resume dns-work
 ```
 
-Keep it concise - 5-10 lines max. User can run `/stash-resume` for full details.
+Keep it concise - 5-10 lines max. User can run `/stash:resume` for full details.

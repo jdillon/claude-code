@@ -12,7 +12,7 @@ Analyze the current session and create a concise stash document for resumption a
 - **Key decisions** made and rationale
 - **Pending work items** and next steps
 - **Important file paths** and locations
-- **Session marks** created with `/stash-mark`
+- **Session marks** created with `/stash:mark`
 - **Critical context** needed to resume work
 - **Unresolved issues** or blockers
 - **Environment state** (branch, working directory, etc.)
@@ -35,7 +35,7 @@ Create stash directory if it doesn't exist.
 
 ## Process
 
-1. Review any `/stash-mark` markers created during session
+1. Review any `/stash:mark` markers created during session
 2. If marks exist, ask user which sections between marks are critical to preserve
 3. Create concise stash document (aim for 500-1000 words)
 4. Save to appropriate location

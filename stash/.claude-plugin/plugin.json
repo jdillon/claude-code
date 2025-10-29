@@ -6,6 +6,7 @@
     "name": "Jason Dillon",
     "url": "https://github.com/jdillon"
   },
+  "license": "Apache-2.0",
   "keywords": [
     "session",
     "stash",

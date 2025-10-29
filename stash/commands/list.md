@@ -22,10 +22,10 @@ List available stashes to help find one to resume from.
 🌍 Global Stashes (~/.claude/stashes/):
   • stash-quick-20251027.md    2025-10-27 14:22
 
-💡 Resume with: /stash-resume <name>
-   Examples: /stash-resume dns-work
-             /stash-resume
-             /stash-resume ~/.claude/stashes/stash-quick-20251027.md
+💡 Resume with: /stash:resume <name>
+   Examples: /stash:resume dns-work
+             /stash:resume
+             /stash:resume ~/.claude/stashes/stash-quick-20251027.md
 ```
 
 ## Implementation
@@ -54,7 +54,7 @@ Use bash to:
     done
   fi
   echo ""
-  echo "💡 Resume with: /stash-resume <name>"
+  echo "💡 Resume with: /stash:resume <name>"
 ```
 
-If no stashes found, show helpful message: "No stashes found. Create one with /stash-save"
+If no stashes found, show helpful message: "No stashes found. Create one with /stash:save"
