@@ -1,0 +1,17 @@
+{
+  "name": "stash",
+  "version": "1.0.0",
+  "description": "Git-style stash system for saving and resuming Claude Code sessions",
+  "author": {
+    "name": "Jason Dillon",
+    "url": "https://github.com/jdillon"
+  },
+  "keywords": [
+    "session",
+    "stash",
+    "checkpoint",
+    "resume",
+    "context",
+    "memory"
+  ]
+}

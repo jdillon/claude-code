@@ -1,0 +1,23 @@
+{
+  "name": "jdillon-local-plugins",
+  "owner": {
+    "name": "Jason Dillon",
+    "url": "https://github.com/jdillon"
+  },
+  "plugins": [
+    {
+      "name": "stash",
+      "source": "./stash",
+      "description": "Git-style stash system for saving and resuming Claude Code sessions",
+      "version": "1.0.0",
+      "keywords": [
+        "session",
+        "stash",
+        "checkpoint",
+        "resume",
+        "context",
+        "memory"
+      ]
+    }
+  ]
+}
