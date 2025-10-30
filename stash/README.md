@@ -72,10 +72,9 @@ When developing or testing changes to the plugin:
 # After making changes
 /plugin uninstall stash
 /plugin install stash
-# Restart Claude Code
 ```
 
-**Note**: The plugin system requires a restart to load new or updated plugins. There is no hot reload available.
+Restart Claude Code if changes don't take effect.
 
 ## Documentation
 

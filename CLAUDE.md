@@ -1,124 +1,61 @@
-# Claude Notes
+# CLAUDE.md
 
-Private notes for Claude Code to help maintain this project.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-This is a public GitHub repository hosting Claude Code plugins. The primary plugin is **stash**, which provides git-stash-inspired session state management.
+Public GitHub repository hosting Claude Code plugins.
 
-## Changelog Maintenance
+## Plugin Architecture
 
-When making changes to this project, update `CHANGELOG.md` following these guidelines:
+See official docs:
+- [Plugins](https://docs.claude.com/en/docs/claude-code/plugins.md) - Structure and creation
+- [Slash Commands](https://docs.claude.com/en/docs/claude-code/slash-commands.md) - Command format and YAML frontmatter
+- [Plugin Marketplaces](https://docs.claude.com/en/docs/claude-code/plugin-marketplaces.md) - Distribution
 
-### Format
-- Follow [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
-- Use [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+**Key project-specific rules**:
+- Command namespace: `/plugin:command` (colon separator, not hyphen)
+- Three metadata files must stay in sync: `marketplace.json`, `{plugin}/.claude-plugin/plugin.json`, `CHANGELOG.md`
 
-### Categories
-- **Added** - New features
-- **Changed** - Changes in existing functionality
-- **Deprecated** - Soon-to-be removed features
-- **Removed** - Removed features
-- **Fixed** - Bug fixes
-- **Security** - Security fixes
+## Development Workflow
 
-### Version Numbers
-- **MAJOR** - Breaking changes (e.g., command renames, removed features)
-- **MINOR** - New features (backwards compatible)
-- **PATCH** - Bug fixes (backwards compatible)
+**See [docs/development.md](docs/development.md) for complete development guide.**
 
-### When to Update
-1. Add entries to `[Unreleased]` section as you work
-2. When ready to release, move `[Unreleased]` items to a new version section
-3. Update version in:
-   - `CHANGELOG.md`
-   - `marketplace.json` (marketplace version and plugin version)
-   - `stash/.claude-plugin/plugin.json`
+### Quick Reference
 
-### Release Process
-1. Update CHANGELOG.md with new version and date
-2. Update version numbers in metadata files
-3. Commit changes with message: "Release v{version}"
-4. Tag the release: `git tag v{version}`
-5. Push: `git push origin main --tags`
-
-## Plugin Structure
-
-```
-claude-code/
-├── marketplace.json          # Marketplace metadata
-├── stash/                    # Stash plugin
-│   ├── .claude-plugin/
-│   │   └── plugin.json      # Plugin metadata
-│   ├── commands/            # Slash commands (markdown)
-│   ├── docs/                # Design docs
-│   └── README.md            # Plugin documentation
-├── CHANGELOG.md             # Public changelog
-├── CLAUDE.md                # This file (private notes)
-├── README.md                # Top-level documentation
-└── LICENSE                  # Apache 2.0
-```
-
-## Command Syntax
-
-**Important:** Commands use plugin namespace syntax:
-- Correct: `/stash:save`, `/stash:resume`
-- Incorrect: `/stash-save`, `/stash-resume`
-
-When updating docs, ensure consistency with the `:` separator.
-
-## License
-
-All code is Apache License 2.0. Ensure new plugins include license in metadata.
-
-## Testing Changes
-
-After modifying plugin files:
+**Testing changes** (no build required):
 ```bash
 /plugin uninstall stash
 /plugin install stash
-# Restart Claude Code
 ```
+Restart may be needed if changes don't take effect.
 
-No hot reload - always restart after plugin changes.
+**Adding a command**:
+1. Create `stash/commands/{name}.md` with YAML frontmatter
+2. Update `stash/README.md` and `CHANGELOG.md`
+3. Test with uninstall/reinstall cycle
 
-## Common Tasks
+**Adding a plugin**:
+1. Create `{plugin}/.claude-plugin/plugin.json` structure
+2. Update `marketplace.json`, root `README.md`, and `CHANGELOG.md`
+3. Include Apache 2.0 license in metadata
 
-### Adding a New Command
-1. Create `stash/commands/{name}.md`
-2. Update `stash/README.md` with command documentation
-3. Update `CHANGELOG.md` under `[Unreleased]`
-4. Test locally before committing
+## Changelog and Releases
 
-### Adding a New Plugin
-1. Create new directory with `.claude-plugin/plugin.json`
-2. Add to `marketplace.json` plugins array
-3. Create plugin README.md
-4. Update top-level README.md
-5. Update CHANGELOG.md
-6. Ensure license is in metadata
+- Follow [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+- Update `[Unreleased]` section as you work
+- On release: Update all three metadata files, commit as "Release v{version}", tag, and push with tags
 
-### Documentation Standards
+## Documentation Standards
+
 - Keep installation instructions in sync across READMEs
-- Reference official docs: https://docs.claude.com/en/docs/claude-code/plugin-marketplaces
-- Use correct GitHub shorthand: `jdillon/claude-code`
-- Include restart reminders (no hot reload)
+- Command syntax: `/plugin:command` (colon, not hyphen)
+- GitHub shorthand: `jdillon/claude-code`
 
-## Stash Storage Locations
+## Troubleshooting
 
-- Project: `.claude/stashes/`
-- Global: `~/.claude/stashes/`
-- Latest tracker: `.claude/stashes/.latest`
+**Changes not taking effect**: Try uninstall/reinstall cycle; restart if still not working
 
-Files named: `stash-{name-or-timestamp}.md`
+**Version mismatch**: Verify all three metadata files have matching version numbers
 
-## Future Enhancements
-
-See `stash/docs/stash-design.md` for planned features:
-- Stack-based indexing (stash@{0}, stash@{1}, etc.)
-- Named stashes (branch-like workflow)
-- Auto-pruning old stashes
-- Stash diff functionality
-- Context window monitoring
-
-Track implementation in CHANGELOG.md as features are added.
+**Command syntax**: Use colon separator (`/plugin:command`), not hyphen

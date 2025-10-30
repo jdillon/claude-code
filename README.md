@@ -28,28 +28,9 @@ Git-style stash system for saving and resuming Claude Code sessions.
 
 For more information about plugin marketplaces, see the [Claude Code Plugin Marketplaces documentation](https://docs.claude.com/en/docs/claude-code/plugin-marketplaces).
 
-### For Development
-
-If you're developing plugins and want to test changes:
-
-1. Clone/fork the repository
-2. Add the local marketplace:
-   ```bash
-   /plugin marketplace add /path/to/your/clone/marketplace.json
-   ```
-3. After making changes to plugin files, you'll need to:
-   - Uninstall the plugin: `/plugin uninstall stash`
-   - Reinstall: `/plugin install stash`
-   - Restart Claude Code for changes to take effect
-
-**Note**: The Claude Code plugin system does not support hot reloading. You must restart after installing, uninstalling, or updating plugins.
-
 ## Contributing
 
-Contributions welcome! Please ensure:
-- Commands follow the `/plugin:command` naming convention
-- Documentation is updated with correct command syntax
-- Test changes locally before submitting PRs
+Contributions are welcome! For information on developing plugins, testing changes, and submitting PRs, see the [Development Guide](docs/development.md).
 
 ## License
 
