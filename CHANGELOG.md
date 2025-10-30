@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- `/stash:save` now automatically creates a `.gitignore` file in `.claude/stashes/` to prevent stash files from being committed to git
+
 ## [1.0.0] - 2025-10-29
 
 ### Added

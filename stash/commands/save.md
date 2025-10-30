@@ -31,7 +31,7 @@ Analyze the current session and create a concise stash document for resumption a
 
 **Global stashes**: Otherwise save to `~/.claude/stashes/stash-<name-or-timestamp>.md`
 
-Create stash directory if it doesn't exist.
+Create stash directory if it doesn't exist. Create `.gitignore` file in stash directory if it doesn't exist with content: `*` (to prevent stash files from being committed).
 
 ## Process
 
