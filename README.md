@@ -10,6 +10,12 @@ Git-style stash system for saving and resuming Claude Code sessions.
 
 [View Documentation](stash/README.md)
 
+### xbeads
+
+Extensions to [beads](https://github.com/steveyegge/beads) issue tracking - behavioral rules and dashboard.
+
+[View Documentation](xbeads/README.md)
+
 ## Installation
 
 ### From GitHub

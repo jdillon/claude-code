@@ -20,6 +20,20 @@
         "context",
         "memory"
       ]
+    },
+    {
+      "name": "xbeads",
+      "source": "./xbeads",
+      "description": "Extensions to beads issue tracking (https://github.com/steveyegge/beads)",
+      "version": "0.2.0",
+      "license": "Apache-2.0",
+      "keywords": [
+        "beads",
+        "issues",
+        "tasks",
+        "workflow",
+        "dashboard"
+      ]
     }
   ]
 }
